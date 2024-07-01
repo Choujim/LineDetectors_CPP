@@ -32,13 +32,13 @@ endif()
 
 
 include_directories(
-    ${PROJECT_SOURCE_DIR}/original
+    ${PROJECT_SOURCE_DIR}/original/lsd_1.6
     ${PROJECT_SOURCE_DIR}/include
     ${OpenCV_INCLUDE_DIRS}
 )
 
 set(LSD_LIBC_NAME "lsd_c")
-add_library(${LSD_LIBC_NAME} STATIC ./original/lsd.c)
+add_library(${LSD_LIBC_NAME} STATIC ./original/lsd_1.6/lsd.c)
 
 
 file(GLOB SOURCES "./src/*.cpp")
@@ -52,7 +52,7 @@ target_link_libraries(${PROJECT_NAME}
 
 
 # build specific Example
-add_executable(lsd_call_example ./original/lsd_call_example.c)
+add_executable(lsd_call_example ./original/lsd_1.6/lsd_call_example.c)
 target_link_libraries(lsd_call_example ${LSD_LIBC_NAME})
 
 set(EX_1_NAME "test_lsd")
